@@ -94,7 +94,7 @@ document.addEventListener('keydown', function (event) {
 
        
         setTimeout(() => {
-            title.textContent = 'Çıkalım mı artık?';
+            title.textContent = 'Doğum Günün Kutlu Olsun, Hediyemi Kabul Eder Misin?';
         }, 2000);
     }
 }
@@ -138,7 +138,7 @@ document.addEventListener('keydown', function (event) {
 
  
     window.addEventListener("beforeunload", function (e) {
-        var confirmationMessage = "Sayfayı kapatmak istediğinizden emin misiniz?";
+        var confirmationMessage = "Sayfayı kapatmak istediğinizden emin misiniz? Teklifimi bir daha düşünebilirsin.";
     e.returnValue = confirmationMessage;
     return confirmationMessage;
     });
