@@ -40,7 +40,7 @@ yesButton.addEventListener('click', function () {
     const title = document.querySelector('.title');
     title.textContent = 'Yaşasınn!';
 });
-// Coding By AzadCoder - ig: @azadcoderr
+
 function generateHearts() {
     const symbols = ['❤️', '💖', '💗', '💕', '💓'];
     const heartInterval = 100;
