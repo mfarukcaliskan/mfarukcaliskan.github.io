@@ -1,163 +1,26 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const title = document.querySelector('.title');
-    const text = title.textContent;
-    title.textContent = '';
+const devamı1 = document.getElementById("devamı1");
+const devamı2 = document.getElementById("devamı2");
+const kapsayici = document.querySelector(".kapsayici");
 
-    const possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+devamı1.addEventListener("click", () => {
+	kapsayici.classList.remove("sağ-panel-aktif");
+});
 
-    for (let i = 0; i < text.length; i++) {
-        const span = document.createElement('span');
-        span.textContent = text[i];
-        span.style.animationDelay = `${i * 0.5}s`; 
-        title.appendChild(span);
+devamı2.addEventListener("click", () => {
+	kapsayici.classList.add("sağ-panel-aktif");
+});
+document.addEventListener('DOMContentLoaded', function () {
+    var temaCheckbox = document.getElementById('tema');
+    var bodyElement = document.body;
+    var kaplamaElement = document.querySelector('.kaplama');
 
-
-        setTimeout(function () {
-            for (let j = 0; j < 10; j++) {
-                setTimeout(function () {
-                    span.textContent = possibleChars.charAt(Math.floor(Math.random() * possibleChars.length));
-                }, (j * 50)); 
-            }
-        }, i * 0.5 * 1000);
-
-        setTimeout(function () {
-            span.textContent = text[i];
-        }, (i + 2) * 0.5 * 1000); 
+    function updateBackground() {
+        var backgroundImageUrl = temaCheckbox.checked ? 'url("https://images8.alphacoders.com/133/1337140.png")':'url("img.jpg")' ;
+        bodyElement.style.backgroundImage = backgroundImageUrl;
+        kaplamaElement.style.backgroundImage = backgroundImageUrl;
     }
+
+    temaCheckbox.addEventListener('change', updateBackground);
+    updateBackground();
 });
-
-const heartColors = ['#ff5e5e', '#ffb6b6', '#ff8484', '#ff9292', '#ffaaaa']; 
-const heartInterval = 15; 
-const numberOfHearts = 500; 
-
-
-const yesButton = document.getElementById('yesButton');
-
-yesButton.addEventListener('click', function () {
-    generateHearts();
-
-
-    const title = document.querySelector('.title');
-    title.textContent = 'Yaşasınn!';
-});
-
-function generateHearts() {
-    const symbols = ['❤️', '💖', '💗', '💕', '💓'];
-    const heartInterval = 100;
-
-    setInterval(() => {
-        const symbol = symbols[Math.floor(Math.random() * symbols.length)]; // Rastgele sembol  
-        createHeart(symbol);
-    }, heartInterval);
-}
-
-function createHeart(symbol) {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.textContent = symbol;
-    heart.style.left = Math.random() * window.innerWidth + 'px';    
-    heart.style.top = Math.random() * window.innerHeight + 'px';             
-    heart.style.animationName = 'heartAnimation';
-    heart.style.animationDuration = '.9s';
-    document.body.appendChild(heart);
-}
-
-const btn = document.getElementById('noButton'); 
-
-let isMoved = false; 
-
-btn.addEventListener("mouseover", function() {
-    if (!isMoved) {
-        btn.style.transform = `translate(-80px, 50px)`; 
-        isMoved = true; 
-    } else {
-        btn.style.transform = `translate(80px, 50px)`;
-        isMoved = false; 
-    }
-    
-    btn.style.transition = "all 0.3s ease"; 
-});
-
-
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Tab') {
-        noButton.style.animation = 'explode 0.5s forwards'; 
-        if (!noButton.dataset.tabPressed) {
-            noButton.dataset.tabPressed = true; 
-        setTimeout(() => noButton.style.display = 'none', 500);
-        event.preventDefault();
-
-
-        const title = document.querySelector('.title');
-        title.textContent = 'Hile yapmak yok :)';
-        
-
-       
-        setTimeout(() => {
-            title.textContent = 'Doğum Günün Kutlu Olsun, Hediyemi Kabul Eder Misin?';
-        }, 2000);
-    }
-}
-});
-
-
-    document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    });
-
-
- 
-    document.onkeydown = function (e) {
-        if (e.ctrlKey && (e.keyCode === 85)) {
-            return false;
-        }
-    }; 
- 
-    window.addEventListener("DOMContentLoaded", function () {
-        document.addEventListener('keydown', function (e) {
-            if ((e.ctrlKey || e.metaKey) && e.keyCode == 85) {
-                disabledEvent(e);
-            }
-            if ((e.ctrlKey || e.metaKey) && e.keyCode == 76 && e.shiftKey) {
-                disabledEvent(e);
-            }
-        }, false);
-    function disabledEvent(e) {
-            if (e.stopPropagation) {
-        e.stopPropagation();
-            }
-    if (e.preventDefault) {
-        e.preventDefault();
-            }
-    e.cancelBubble = true;
-    e.returnValue = false;
-    return false;
-        }
-    }); 
-
-
- 
-    window.addEventListener("beforeunload", function (e) {
-        var confirmationMessage = "Sayfayı kapatmak istediğinizden emin misiniz? Teklifimi bir daha düşünebilirsin.";
-    e.returnValue = confirmationMessage;
-    return confirmationMessage;
-    });
-    document.addEventListener('keydown', function (e) {
-        if ((e.ctrlKey || e.metaKey) && e.keyCode == 87) {
-        disabledEvent(e);
-        }
-    if (e.altKey && e.keyCode == 115) {
-        disabledEvent(e);
-        }
-    }, false);
-    function disabledEvent(e) {
-        if (e.stopPropagation) {
-        e.stopPropagation();
-        }
-    if (e.preventDefault) {
-        e.preventDefault();
-        }
-    e.cancelBubble = true;
-    e.returnValue = false;
-    return false;
-    } 
+  
